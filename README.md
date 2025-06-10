@@ -1,5 +1,6 @@
 # AI-tools-
 Q1: Primary differences between TensorFlow and PyTorch, and when to choose one over the other.
+
 1.Computation Graph
 TensorFlow:
 
@@ -77,6 +78,8 @@ Prioritizing debugging flexibility (dynamic graphs),
 Leveraging latest research models (e.g., Hugging Face transformers).
 
 Example: Experimenting with a novel neural architecture.
+
+
 Q2: Two use cases for Jupyter Notebooks in AI development
 1.Interactive Prototyping & Debugging:
 
@@ -94,7 +97,9 @@ Q2: Two use cases for Jupyter Notebooks in AI development
 
 • Example: Documenting an NLP pipeline—data cleaning, model training, and results—for team review.
 
+
 Q3: How spaCy enhances NLP tasks vs. basic Python string operations
+
 1.Linguistic Intelligence:
 
 • spaCy uses statistical models to understand context (e.g., "Apple" as company vs. fruit), while string operations rely on rigid rules.
