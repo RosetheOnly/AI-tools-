@@ -80,38 +80,38 @@ Example: Experimenting with a novel neural architecture.
 Q2: Two use cases for Jupyter Notebooks in AI development
 1.Interactive Prototyping & Debugging:
 
-.Execute code incrementally (cell-by-cell) to test model components (e.g., data preprocessing, layer outputs).
+• Execute code incrementally (cell-by-cell) to test model components (e.g., data preprocessing, layer outputs).
 
-.Visualize results immediately (e.g., plot loss curves, display sample predictions) without rerunning entire scripts.
+• Visualize results immediately (e.g., plot loss curves, display sample predictions) without rerunning entire scripts.
 
-.Example: Debugging a CNN by inspecting feature maps after each convolutional layer.
+• Example: Debugging a CNN by inspecting feature maps after each convolutional layer.
 
 2.Collaborative Documentation & Reproducibility:
 
-.Combine code, visualizations, equations (LaTeX), and narrative text (Markdown) in a single shareable document.
+• Combine code, visualizations, equations (LaTeX), and narrative text (Markdown) in a single shareable document.
 
-.Share notebooks (via .ipynb files or platforms like Google Colab) to ensure experiments are reproducible.
+• Share notebooks (via .ipynb files or platforms like Google Colab) to ensure experiments are reproducible.
 
-.Example: Documenting an NLP pipeline—data cleaning, model training, and results—for team review.
+• Example: Documenting an NLP pipeline—data cleaning, model training, and results—for team review.
 
 Q3: How spaCy enhances NLP tasks vs. basic Python string operations
 1.Linguistic Intelligence:
 
-.spaCy uses statistical models to understand context (e.g., "Apple" as company vs. fruit), while string operations rely on rigid rules.
+• spaCy uses statistical models to understand context (e.g., "Apple" as company vs. fruit), while string operations rely on rigid rules.
 
-.Example: spaCy identifies entities (ORG, PERSON) in text; string ops would need error-prone regex patterns.
+• Example: spaCy identifies entities (ORG, PERSON) in text; string ops would need error-prone regex patterns.
 
 2.Efficiency & Scalability:
 
-.Built-in tokenization, lemmatization, and dependency parsing handle complex language structures at high speed (Cython-optimized).
+• Built-in tokenization, lemmatization, and dependency parsing handle complex language structures at high speed (Cython-optimized).
 
-.String operations (e.g., .split(), regex) struggle with edge cases (hyphenated words, multilingual text).
+• String operations (e.g., .split(), regex) struggle with edge cases (hyphenated words, multilingual text).
 
 3.Pre-trained Pipelines:
 
-.Offers ready-to-use models (e.g., en_core_web_sm) for tasks like named entity recognition (NER), part-of-speech tagging, or similarity detection.
+• Offers ready-to-use models (e.g., en_core_web_sm) for tasks like named entity recognition (NER), part-of-speech tagging, or similarity detection.
 
-.String operations require manual implementation for each task.
+• String operations require manual implementation for each task.
 
 
 
