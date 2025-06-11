@@ -1,6 +1,6 @@
 Compare Scikit-learn and TensorFlow in terms of:
-Target applications (e.g., classical ML vs. deep learning).
-Ease of use for beginners.
+Target applications (e.g., classical ML vs. deep learning),
+Ease of use for beginners, and
 Community support.
 ---
 
