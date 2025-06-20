@@ -64,4 +64,47 @@ history = model.fit(
 test_loss, test_accuracy = model.evaluate(X_test, y_test_cat, verbose=0)
 print(f"\nTest Accuracy: {test_accuracy:.4f}")
 
+# Plot training history
+plt.figure(figsize=(12, 4))
+
+plt.subplot(1, 2, 1)
+plt.plot(history.history['accuracy'], label='Training Accuracy')
+plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
+plt.title('Model Accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.legend()
+
+plt.subplot(1, 2, 2)
+plt.plot(history.history['loss'], label='Training Loss')
+plt.plot(history.history['val_loss'], label='Validation Loss')
+plt.title('Model Loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
+# Visualize predictions on 5 sample images
+predictions = model.predict(X_test[:5])
+predicted_classes = np.argmax(predictions, axis=1)
+
+plt.figure(figsize=(15, 3))
+for i in range(5):
+    plt.subplot(1, 5, i+1)
+    plt.imshow(X_test[i].reshape(28, 28), cmap='gray')
+    plt.title(f'Actual: {y_test[i]}, Predicted: {predicted_classes[i]}')
+    plt.axis('off')
+plt.tight_layout()
+plt.show()
+
+# Print prediction probabilities
+for i in range(5):
+    print(f"Image {i+1}: Actual={y_test[i]}, Predicted={predicted_classes[i]}")
+    print(f"Confidence: {predictions[i][predicted_classes[i]]:.4f}")
+    print()
+
+
+
 
