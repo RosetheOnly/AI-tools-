@@ -153,3 +153,4 @@ axes[1, 1].set_ylabel('Review Index')
 
 plt.tight_layout()
 plt.show()
+
