@@ -21,5 +21,90 @@ y_test_cat = tf.keras.utils.to_categorical(y_test, 10)
 print(f"Training data shape: {X_train.shape}")
 print(f"Test data shape: {X_test.shape}")
 
-plt.show ()
+# Build the CNN model
+model = models.Sequential([
+    # First convolutional block
+    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)),
+    layers.MaxPooling2D((2, 2)),
+   
+    # Second convolutional block
+    layers.Conv2D(64, (3, 3), activation='relu'),
+    layers.MaxPooling2D((2, 2)),
+   
+    # Third convolutional block
+    layers.Conv2D(64, (3, 3), activation='relu'),
+   
+    # Flatten and dense layers
+    layers.Flatten(),
+    layers.Dense(64, activation='relu'),
+    layers.Dropout(0.5),
+    layers.Dense(10, activation='softmax')
+])
+
+# Compile model
+model.compile(
+    optimizer='adam',
+    loss='categorical_crossentropy',
+    metrics=['accuracy']
+)
+
+# Display model architecture
+model.summary()
+
+# Train the model
+history = model.fit(
+    X_train, y_train_cat,
+    batch_size=32,
+    epochs=10,
+    validation_data=(X_test, y_test_cat),
+    verbose=1
+)
+
+# Evaluate model
+test_loss, test_accuracy = model.evaluate(X_test, y_test_cat, verbose=0)
+print(f"\nTest Accuracy: {test_accuracy:.4f}")
+
+# Plot training history
+plt.figure(figsize=(12, 4))
+
+plt.subplot(1, 2, 1)
+plt.plot(history.history['accuracy'], label='Training Accuracy')
+plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
+plt.title('Model Accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.legend()
+
+plt.subplot(1, 2, 2)
+plt.plot(history.history['loss'], label='Training Loss')
+plt.plot(history.history['val_loss'], label='Validation Loss')
+plt.title('Model Loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
+# Visualize predictions on 5 sample images
+predictions = model.predict(X_test[:5])
+predicted_classes = np.argmax(predictions, axis=1)
+
+plt.figure(figsize=(15, 3))
+for i in range(5):
+    plt.subplot(1, 5, i+1)
+    plt.imshow(X_test[i].reshape(28, 28), cmap='gray')
+    plt.title(f'Actual: {y_test[i]}, Predicted: {predicted_classes[i]}')
+    plt.axis('off')
+plt.tight_layout()
+plt.show()
+
+# Print prediction probabilities
+for i in range(5):
+    print(f"Image {i+1}: Actual={y_test[i]}, Predicted={predicted_classes[i]}")
+    print(f"Confidence: {predictions[i][predicted_classes[i]]:.4f}")
+    print()
+
+
+
 
