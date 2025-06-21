@@ -20,6 +20,7 @@ sample_reviews = [
      "Google Pixel 7 has a great camera but poor battery. Google phones are hit or miss.",
      "Dell XPS 13 laptop is reliable and lightweight. Dell makes quality business laptops."
  ]
+
 # Create a DataFrame 
 df = pd.DataFrame({'review': sample_reviews})
 
@@ -152,3 +153,4 @@ axes[1, 1].set_ylabel('Review Index')
 
 plt.tight_layout()
 plt.show()
+
